@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de tarjeta de visita</title>
+  <link rel="stylesheet" href="form-estilos.css">
+</head>
+<body>
+
+  <h1>Generador de tarjeta de visita</h1>
+
+  <form action="generar.php" method="POST">
+
+    <label for="nombre">Nombre completo *</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="cargo">Cargo / Puesto *</label>
+    <input type="text" id="cargo" name="cargo" required>
+
+    <label for="empresa">Empresa</label>
+    <input type="text" id="empresa" name="empresa">
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono">
+
+    <label for="web">Web / Portfolio</label>
+    <input type="url" id="web" name="web">
+
+    <label for="color">Color principal</label>
+    <input type="color" id="color" name="color" value="#2E75B6">
+
+    <fieldset>
+      <legend>Estilo de la tarjeta</legend>
+
+      <input type="radio" id="minimalista" name="estilo" value="minimalista" checked>
+      <label for="minimalista">Minimalista</label>
+
+      <input type="radio" id="moderno" name="estilo" value="moderno">
+      <label for="moderno">Moderno</label>
+
+      <input type="radio" id="clasico" name="estilo" value="clasico">
+      <label for="clasico">Clásico</label>
+    </fieldset>
+
+    <button type="submit">Generar tarjeta</button>
+
+  </form>
+
+</body>
+</html>

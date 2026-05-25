@@ -1,0 +1,169 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY GENERAL
+========================= */
+
+body {
+  line-height: 1.5;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: #f5f6f8;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+form {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  background: #e9e9e9;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.1);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #000;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+  background: #000;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   PRESUPUESTO (RESULTADO PHP)
+========================= */
+
+/* títulos */
+h1 {
+  text-align: center;
+}
+
+/* datos cliente */
+p {
+  background: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* títulos secciones */
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+/* TABLA */
+table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* encabezado */
+th {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  text-align: left;
+}
+
+/* celdas */
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* filas alternas */
+tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* hover */
+tr:hover td {
+  background: #f0f0f0;
+}
+
+/* TOTAL */
+h3 {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+a {
+    background-color: #000;
+    border-radius: 1rem;
+    color: white;
+    text-decoration: none;
+    max-width: 500px;
+    width: 20%;
+    text-align: center;
+    height: 100%;
+    margin: 20px;
+}

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 40px;
+}
+
+.contenedor,
+.confirmacion-container {
+    max-width: 700px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: xx-large;
+    font-family: "Oswald", sans-serif;
+}
+
+h1 span {
+    color: #0077cc;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select,
+textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.grupo-radio label,
+.grupo-checkbox label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #3c19bd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #240f72;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.tarjeta {
+    background-color: #f9fafc;
+    border-left: 5px solid #3c19bd;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    color: #3c19bd;
+}
+
+ul {
+    margin: 0;
+}

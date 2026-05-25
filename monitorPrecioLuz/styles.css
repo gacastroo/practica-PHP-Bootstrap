@@ -1,0 +1,730 @@
+:root {
+    --fondo: #ede7de;
+    --tarjeta: #fffaf2;
+    --tarjeta-borde-claro: #ffffff;
+    --tarjeta-borde-oscuro: #8f7d6b;
+    --texto: #1f1a16;
+    --texto-suave: #665d54;
+    --linea: #b7a695;
+    --linea-fuerte: #5f5247;
+    --tabla-cabecera: #2b211b;
+    --tabla-cabecera-texto: #fff7ed;
+    --tabla-fila: #fffaf3;
+    --tabla-fila-alt: #efe4d6;
+    --verde-fondo: #dcefd7;
+    --verde-texto: #14532d;
+    --rojo-fondo: #f3d6d2;
+    --rojo-texto: #7f1d1d;
+    --radio: 28px;
+
+    --punta: #dc2626;
+    --punta-oscuro: #7f1d1d;
+    --punta-suave: #fee2e2;
+
+    --llano: #d97706;
+    --llano-oscuro: #78350f;
+    --llano-suave: #fef3c7;
+
+    --valle: #16a34a;
+    --valle-oscuro: #14532d;
+    --valle-suave: #dcfce7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fondo);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.36), transparent 260px);
+}
+
+.cabecera {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, 95%);
+    margin: 0 auto;
+    padding: 42px 0 18px;
+    color: var(--texto);
+    text-align: left;
+}
+
+.cabecera h1 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(2rem, 4vw, 4.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+    font-weight: 850;
+}
+
+.cabecera p {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0 0;
+    padding: 10px 15px;
+    border: 2px solid #c9b8a7;
+    border-radius: 999px;
+    background: #fffaf2;
+    color: #4b4038;
+    font-weight: 750;
+    box-shadow:
+        0 3px 0 #a89583,
+        0 10px 20px rgba(95, 82, 71, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.cabecera p::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #d97706;
+    box-shadow:
+        0 0 0 5px rgba(217, 119, 6, 0.16),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.contenedor {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, 95%);
+    margin: 24px auto 42px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 30px;
+}
+
+.card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-width: 0;
+    height: 100%;
+    padding: 42px 34px 34px;
+    border-radius: var(--radio);
+    background: var(--tarjeta);
+    border: 2px solid var(--tarjeta-borde-oscuro);
+
+    box-shadow:
+        0 9px 0 #8f7d6b,
+        0 20px 38px rgba(47, 39, 32, 0.25),
+        inset 0 0 0 3px var(--tarjeta-borde-claro),
+        inset 0 -4px 0 rgba(143, 125, 107, 0.22);
+
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0);
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    z-index: -1;
+    border-radius: calc(var(--radio) - 14px);
+    border: 1.5px solid rgba(143, 125, 107, 0.32);
+    pointer-events: none;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    right: 20px;
+    height: 9px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #92400e, #c2410c, #f59e0b);
+    box-shadow:
+        0 2px 0 rgba(95, 82, 71, 0.28),
+        inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+/* Diferenciación sutil por periodo:
+   Las tarjetas tienen fondo neutro y el periodo se identifica mediante
+   borde, banda superior y pequeños acentos, sin cargar visualmente la vista.
+*/
+.card-punta,
+.card-llano,
+.card-valle {
+    background: #fffaf2;
+}
+
+.card-punta {
+    border-color: rgba(127, 29, 29, 0.55);
+    box-shadow:
+        0 9px 0 rgba(127, 29, 29, 0.38),
+        0 20px 38px rgba(47, 39, 32, 0.18),
+        inset 0 0 0 3px #ffffff,
+        inset 0 -4px 0 rgba(143, 125, 107, 0.16);
+}
+
+.card-llano {
+    border-color: rgba(120, 53, 15, 0.5);
+    box-shadow:
+        0 9px 0 rgba(146, 64, 14, 0.34),
+        0 20px 38px rgba(47, 39, 32, 0.18),
+        inset 0 0 0 3px #ffffff,
+        inset 0 -4px 0 rgba(143, 125, 107, 0.16);
+}
+
+.card-valle {
+    border-color: rgba(20, 83, 45, 0.5);
+    box-shadow:
+        0 9px 0 rgba(20, 83, 45, 0.34),
+        0 20px 38px rgba(47, 39, 32, 0.18),
+        inset 0 0 0 3px #ffffff,
+        inset 0 -4px 0 rgba(143, 125, 107, 0.16);
+}
+
+.card-punta::before {
+    background: linear-gradient(90deg, rgba(127, 29, 29, 0.72), rgba(220, 38, 38, 0.52));
+}
+
+.card-llano::before {
+    background: linear-gradient(90deg, rgba(120, 53, 15, 0.72), rgba(217, 119, 6, 0.52));
+}
+
+.card-valle::before {
+    background: linear-gradient(90deg, rgba(20, 83, 45, 0.72), rgba(22, 163, 74, 0.52));
+}
+
+.encabezado-periodo {
+    display: grid;
+    gap: 12px;
+    min-height: 82px;
+    align-content: start;
+}
+
+.etiqueta-periodo {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.085em;
+    border: 2px solid currentColor;
+    box-shadow:
+        0 3px 0 rgba(31, 26, 22, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.78);
+}
+
+.etiqueta-periodo::before {
+    display: inline-grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.72rem;
+    line-height: 1;
+}
+
+.card-punta .etiqueta-periodo {
+    color: var(--punta-oscuro);
+    background: rgba(254, 226, 226, 0.45);
+}
+
+.card-punta .etiqueta-periodo::before {
+    content: "!";
+    background: rgba(220, 38, 38, 0.78);
+}
+
+.card-llano .etiqueta-periodo {
+    color: var(--llano-oscuro);
+    background: rgba(254, 243, 199, 0.5);
+}
+
+.card-llano .etiqueta-periodo::before {
+    content: "=";
+    background: rgba(217, 119, 6, 0.78);
+}
+
+.card-valle .etiqueta-periodo {
+    color: var(--valle-oscuro);
+    background: rgba(220, 252, 231, 0.5);
+}
+
+.card-valle .etiqueta-periodo::before {
+    content: "€";
+    background: rgba(22, 163, 74, 0.78);
+}
+
+.card h2 {
+    margin: 0;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.34rem;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+}
+
+.card h2::before {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 13px;
+    color: white;
+    font-size: 1.05rem;
+    box-shadow:
+        0 4px 0 rgba(31, 26, 22, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.card-punta h2::before {
+    content: "▲";
+    background: var(--punta);
+}
+
+.card-llano h2::before {
+    content: "●";
+    background: var(--llano);
+}
+
+.card-valle h2::before {
+    content: "▼";
+    background: var(--valle);
+}
+
+.descripcion {
+    margin: 16px 0 0;
+    min-height: 76px;
+    color: var(--texto-suave);
+    line-height: 1.5;
+    font-size: 0.96rem;
+    padding-left: 13px;
+    border-left: 4px solid #b7a695;
+}
+
+.card-punta .descripcion {
+    border-left-color: var(--punta);
+}
+
+.card-llano .descripcion {
+    border-left-color: var(--llano);
+}
+
+.card-valle .descripcion {
+    border-left-color: var(--valle);
+}
+
+.destacados {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    min-height: 194px;
+    margin: 21px 0 22px;
+}
+
+.alerta {
+    min-height: 90px;
+    border-radius: 18px;
+    padding: 16px 17px;
+    border: 2px solid rgba(95, 82, 71, 0.22);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow:
+        0 4px 0 rgba(95, 82, 71, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.alerta span {
+    display: block;
+    min-height: 18px;
+    font-size: 0.78rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.alerta strong {
+    display: block;
+    min-height: 28px;
+    margin: 5px 0;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.alerta small {
+    display: block;
+    font-weight: 800;
+    opacity: 0.9;
+}
+
+.verde {
+    background: var(--verde-fondo);
+    color: var(--verde-texto);
+}
+
+.roja {
+    background: var(--rojo-fondo);
+    color: var(--rojo-texto);
+}
+
+table {
+    width: 100%;
+    margin-top: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    overflow: hidden;
+    border: 2px solid var(--linea-fuerte);
+    border-radius: 18px;
+    background: var(--tabla-fila);
+    box-shadow:
+        0 5px 0 #8f7d6b,
+        0 12px 22px rgba(47, 39, 32, 0.18),
+        inset 0 0 0 1px rgba(255,255,255,0.65);
+}
+
+.card-punta table {
+    border-color: var(--punta-oscuro);
+    box-shadow:
+        0 5px 0 #7f1d1d,
+        0 12px 22px rgba(127, 29, 29, 0.16),
+        inset 0 0 0 1px rgba(255,255,255,0.65);
+}
+
+.card-llano table {
+    border-color: var(--llano-oscuro);
+    box-shadow:
+        0 5px 0 #92400e,
+        0 12px 22px rgba(120, 53, 15, 0.15),
+        inset 0 0 0 1px rgba(255,255,255,0.65);
+}
+
+.card-valle table {
+    border-color: var(--valle-oscuro);
+    box-shadow:
+        0 5px 0 #14532d,
+        0 12px 22px rgba(20, 83, 45, 0.15),
+        inset 0 0 0 1px rgba(255,255,255,0.65);
+}
+
+th,
+td {
+    height: 45px;
+    padding: 11px 12px;
+    border-bottom: 1.5px solid var(--linea);
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 0.94rem;
+}
+
+th + th,
+td + td {
+    border-left: 1.5px solid var(--linea);
+}
+
+th:first-child,
+td:first-child {
+    width: 56%;
+}
+
+th:last-child,
+td:last-child {
+    width: 44%;
+    text-align: right;
+}
+
+th {
+    background: var(--tabla-cabecera);
+    color: var(--tabla-cabecera-texto);
+    font-size: 0.77rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    border-bottom: 2px solid var(--linea-fuerte);
+}
+
+.card-punta th {
+    background: var(--punta-oscuro);
+}
+
+.card-llano th {
+    background: var(--llano-oscuro);
+}
+
+.card-valle th {
+    background: var(--valle-oscuro);
+}
+
+tbody tr:nth-child(odd) td {
+    background: var(--tabla-fila);
+}
+
+tbody tr:nth-child(even) td {
+    background: var(--tabla-fila-alt);
+}
+
+.card-punta tbody tr:nth-child(even) td {
+    background: rgba(254, 226, 226, 0.38);
+}
+
+.card-llano tbody tr:nth-child(even) td {
+    background: rgba(254, 243, 199, 0.42);
+}
+
+.card-valle tbody tr:nth-child(even) td {
+    background: rgba(220, 252, 231, 0.42);
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+tbody td:last-child {
+    font-weight: 900;
+    color: #7c2d12;
+}
+
+.card-punta tbody td:last-child {
+    color: var(--punta-oscuro);
+}
+
+.card-llano tbody td:last-child {
+    color: var(--llano-oscuro);
+}
+
+.card-valle tbody td:last-child {
+    color: var(--valle-oscuro);
+}
+
+tbody tr:hover td {
+    background: #e8dacb;
+}
+
+.card-punta tbody tr:hover td {
+    background: rgba(254, 202, 202, 0.42);
+}
+
+.card-llano tbody tr:hover td {
+    background: rgba(253, 230, 138, 0.46);
+}
+
+.card-valle tbody tr:hover td {
+    background: rgba(187, 247, 208, 0.46);
+}
+
+
+/*
+   Hora más barata de cada tarjeta:
+   - Resaltado sutil y agradable.
+   - Sin colores agresivos.
+   - Una línea lateral fina indica la mejor hora sin romper el diseño.
+*/
+.fila-minima td {
+    position: relative;
+    font-weight: 850;
+}
+
+.fila-minima td:first-child {
+    border-left: 4px solid currentColor;
+}
+
+.card-punta .fila-minima td {
+    background: rgba(220, 38, 38, 0.075) !important;
+    color: var(--punta-oscuro);
+}
+
+.card-llano .fila-minima td {
+    background: rgba(217, 119, 6, 0.09) !important;
+    color: var(--llano-oscuro);
+}
+
+.card-valle .fila-minima td {
+    background: rgba(22, 163, 74, 0.085) !important;
+    color: var(--valle-oscuro);
+}
+
+.celda-hora {
+    white-space: normal;
+}
+
+.badge-minimo {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 7px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    font-size: 0.64rem;
+    font-weight: 850;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    vertical-align: middle;
+    background: rgba(255, 250, 242, 0.72);
+    border: 1px solid currentColor;
+    opacity: 0.82;
+}
+
+.card-punta .badge-minimo {
+    color: var(--punta-oscuro);
+}
+
+.card-llano .badge-minimo {
+    color: var(--llano-oscuro);
+}
+
+.card-valle .badge-minimo {
+    color: var(--valle-oscuro);
+}
+
+.mensaje-error,
+.error {
+    background: #f3d6d2;
+    color: #7f1d1d;
+    padding: 18px;
+    border-radius: 18px;
+    border: 2px solid rgba(127, 29, 29, 0.24);
+    box-shadow:
+        0 5px 0 rgba(127, 29, 29, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.mensaje-error {
+    grid-column: 1 / -1;
+}
+
+.error {
+    margin-top: 20px;
+    min-height: 194px;
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    width: min(1200px, 95%);
+    margin: 0 auto;
+    padding: 0 0 34px;
+    text-align: left;
+    color: #5c5047;
+    font-size: 0.94rem;
+}
+
+footer p {
+    margin: 0;
+    padding: 16px 0;
+}
+
+@media (max-width: 1050px) {
+    .contenedor {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .cabecera {
+        padding: 34px 0 12px;
+    }
+
+    .cabecera h1 {
+        letter-spacing: -0.055em;
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr;
+        width: min(540px, 94%);
+        gap: 24px;
+    }
+
+    .card:nth-child(3) {
+        grid-column: auto;
+    }
+
+    .card {
+        padding: 38px 24px 26px;
+        border-radius: 24px;
+    }
+
+    .card::after {
+        inset: 13px;
+        border-radius: 16px;
+    }
+
+    .card::before {
+        top: 14px;
+        left: 18px;
+        right: 18px;
+    }
+
+    .encabezado-periodo,
+    .card h2,
+    .descripcion,
+    .destacados,
+    .alerta,
+    .alerta strong,
+    .error {
+        min-height: initial;
+    }
+
+    th,
+    td {
+        height: 41px;
+        padding: 9px 10px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        width: min(540px, 94%);
+    }
+}
+
+@media (max-width: 420px) {
+    .card h2 {
+        font-size: 1.18rem;
+    }
+
+    .card h2::before {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+    }
+
+    th,
+    td {
+        font-size: 0.84rem;
+    }
+
+    .alerta strong {
+        font-size: 1.18rem;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de unidades</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <h1>Conversor de unidades</h1>
+
+    <form id="formu" action="convertir.php" method="post">
+
+        <label for="valor">Introduce un valor:</label>
+        <input type="number" id="valor" name="valor" step="any" required>
+
+        <label for="conversion">Selecciona una conversión:</label>
+        <select name="conversion" id="conversion">
+
+            <!-- Longitud -->
+            <option value="km_m">Kilómetros → Metros</option>
+            <option value="m_km">Metros → Kilómetros</option>
+
+            <!-- Peso -->
+            <option value="kg_g">Kilogramos → Gramos</option>
+            <option value="g_kg">Gramos → Kilogramos</option>
+            <option value="lb_kg">Libras → Kilogramos</option>
+            <option value="kg_lb">Kilogramos → Libras</option>
+
+            <!-- Temperatura -->
+            <option value="c_f">Celsius → Fahrenheit</option>
+            <option value="f_c">Fahrenheit → Celsius</option>
+
+        </select>
+
+        <input type="submit" value="Convertir">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario presupuesto</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<h1>Solicitar presupuesto</h1>
+
+<form action="presupuesto.php" method="POST">
+
+  <label for="empresa">Empresa:</label>
+  <input type="text" id="empresa" name="empresa">
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+
+  <label for="tipo">Tipo de cliente:</label>
+  <select id="tipo" name="tipo">
+    <option value="particular">Particular</option>
+    <option value="autonomo">Autónomo</option>
+    <option value="empresa">Empresa</option>
+  </select>
+
+  <label>
+    <input id="urgente" type="checkbox" name="urgente">
+    Servicio urgente (+20%)
+  </label>
+
+  <h3>Servicios</h3>
+
+  <label>
+    <input type="checkbox" name="servicios[]" value="logo">
+    Diseño de logotipo (350€)
+  </label>
+
+  <label>
+    <input type="checkbox" name="servicios[]" value="web">
+    Página web básica (200€)
+  </label>
+
+  <label>
+    <input type="checkbox" name="servicios[]" value="mantenimiento">
+    Mantenimiento web (150€)
+  </label>
+
+  <label>
+    <input type="checkbox" name="servicios[]" value="seo">
+    SEO básico (100€)
+  </label>
+
+  <button type="submit">Calcular presupuesto</button>
+  <div id="errores"></div>  
+</form>
+
+</body>
+</html>

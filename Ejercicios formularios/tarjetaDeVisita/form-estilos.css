@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="color"] {
+  width: 60px;
+  height: 36px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+}
+
+fieldset legend {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0 0.3rem;
+}
+
+fieldset label {
+  display: inline;
+  font-weight: normal;
+  margin: 0 1rem 0 0.3rem;
+}
+
+fieldset input[type="radio"] {
+  margin-top: 0.5rem;
+}
+
+button[type="submit"] {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
