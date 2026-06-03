@@ -1,0 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 56px;
+}
+
+section {
+    scroll-margin-top: 50px;
+    min-height: 50vh;
+}
